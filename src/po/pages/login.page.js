@@ -28,6 +28,30 @@ class LoginPage extends BasePage {
     await browser.keys('Delete');
   }
 
+  async setUsername(username) {
+    await this.username.setValue(username);
+  }
+
+  async setPassword(password) {
+    await this.password.setValue(password);
+  }
+
+  async clearUsername() {
+    await this.clear(this.username);
+  }
+
+  async clearPassword() {
+    await this.clear(this.password);
+  }
+
+  async clickLogin() {
+    await this.loginBtn.click();
+  }
+
+  async validateErrorMessage(expectedMessage) {
+    await expect(this.errorMessage).toHaveText(expectedMessage);
+  }
+
 }
 
 module.exports = new LoginPage();

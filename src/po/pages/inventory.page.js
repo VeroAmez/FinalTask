@@ -3,15 +3,11 @@ const BasePage = require('./base.page');
 class InventoryPage extends BasePage {
   async isOpened() {
     const currentUrl = await browser.getUrl();
-    await expect(currentUrl).toContain('/inventory');
-    await this.validateTitle();
-  }
+    expect(currentUrl).toContain('/inventory');
 
-  async validateTitle() {
     const title = await browser.getTitle();
-    await expect(title).toBe('Swag Labs');
+    expect(title).toBe('Swag Labs');
   }
-
   
 }
 
